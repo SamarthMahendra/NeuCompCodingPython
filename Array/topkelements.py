@@ -45,10 +45,5 @@ class Solution:
         return [x for x, _ in Counter(nums).most_common(k)]
 
 obj = Solution()
-# test [3,0,1,0]
-# k =
-# 1
-# Output
-# [0]
 
 print(obj.topKFrequent([3,0,1,0],1))
