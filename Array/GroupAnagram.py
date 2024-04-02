@@ -16,6 +16,19 @@ class Solution(object):
             r.append(v)
         return r
 
+    def groupAnagramsv2(self, strs):
+        res = {}
+        for i in range(len(strs)):
+            d1 = str(sorted(strs[i]))
+            if d1 in res:
+                res[d1].append(strs[i])
+            else:
+                res[d1] = [strs[i]]
+        r = []
+        for k,v in res.items():
+            r.append(v)
+        return r
+
 
     @staticmethod
     def charFrequency(st):
@@ -42,4 +55,4 @@ class Solution(object):
 
 
 obj = Solution()
-print(obj.groupAnagrams(["abbbbbbbbbbb","aaaaaaaaaaab"]))
+print(obj.groupAnagramsv2(["abbbbbbbbbbb","aaaaaaaaaaab"]))

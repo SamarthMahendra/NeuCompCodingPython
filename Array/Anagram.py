@@ -40,6 +40,9 @@ class Solution:
         else:
             return True
 
+    def isAnagram3(self, x: str, t: str) -> bool:
+        return sorted(x) == sorted(t)
+
 
 obj = Solution()
-print(obj.isAnagram2("anagram", "nagaram"))
+print(obj.isAnagram3("anagram", "nagaram"))
