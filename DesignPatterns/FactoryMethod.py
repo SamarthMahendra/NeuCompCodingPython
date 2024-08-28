@@ -1,3 +1,6 @@
+from abc import ABC, abstractmethod
+
+
 class CaneItem:
 
     def __init__(self, name, price):
@@ -9,6 +12,7 @@ class CaneItem:
 
     def prepare(self):
         pass
+
 
 class Size:
 
@@ -24,35 +28,35 @@ class Size:
 
 class Small(Size):
 
-        def __init__(self):
-            super().__init__('small')
+    def __init__(self):
+        super().__init__('small')
 
 
 class Medium(Size):
 
-        def __init__(self):
-            super().__init__('medium')
+    def __init__(self):
+        super().__init__('medium')
+
 
 class Large(Size):
 
-        def __init__(self):
-            super().__init__('large')
-
-
+    def __init__(self):
+        super().__init__('large')
 
 
 class ChickenFingers(CaneItem):
 
-    def __init__(self, size:Size =Small()):
+    def __init__(self, size: Size = Small()):
         super().__init__('Chicken Fingers', 5.0)
         self.size = size
 
     def prepare(self):
         print(f'Preparing {self.name} of size : {self.size}.')
 
+
 class CrinkleCutFries(CaneItem):
 
-    def __init__(self, size:Size =Small()):
+    def __init__(self, size: Size = Small()):
         super().__init__('Crinkle Cut Fries', 2.0)
         self.size = size
 
@@ -62,35 +66,37 @@ class CrinkleCutFries(CaneItem):
 
 class TexasToast(CaneItem):
 
-    def __init__(self, size:Size =Small()):
+    def __init__(self, size: Size = Small()):
         super().__init__('Texas Toast', 1.0)
         self.size = size
 
     def prepare(self):
         print(f'Preparing {self.name} of size : {self.size}.')
 
+
 class Coleslaw(CaneItem):
 
-    def __init__(self, size:Size =Small()):
+    def __init__(self, size: Size = Small()):
         super().__init__('Coleslaw', 1.0)
         self.size = size
 
     def prepare(self):
         print(f'Preparing {self.name} of size : {self.size}.')
 
-# Create an abstract class RaisingCanesOrder with an abstract method createMenuItem(itemType: str) -> MenuItem.
 
-from abc import ABC, abstractmethod
+# Create an abstract class RaisingCanesOrder with an abstract method createMenuItem(itemType: str) -> MenuItem.
 
 class RaisingCanesOrder(ABC):
 
-        @abstractmethod
-        def createMenuItem(self, itemType: str, size: Size) -> CaneItem:
-            pass
+    @abstractmethod
+    def createMenuItem(self, itemType: str, size: Size) -> CaneItem:
+        pass
+
 
 class SimpleOrder(RaisingCanesOrder):
 
-    def createMenuItem(self, itemType: str, size:Size = Small()) -> ChickenFingers | CrinkleCutFries | TexasToast | Coleslaw | None:
+    def createMenuItem(self, itemType: str,
+                       size: Size = Small()) -> ChickenFingers | CrinkleCutFries | TexasToast | Coleslaw | None:
         if itemType == 'chicken_fingers':
             return ChickenFingers(size)
         elif itemType == 'fries':
@@ -140,7 +146,6 @@ def main():
     for item in caniac_combo_items:
         item.prepare()
 
+
 if __name__ == "__main__":
     main()
-
-
