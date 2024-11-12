@@ -44,6 +44,34 @@ class Solution:
     def topKFrequentv4(self, nums: List[int], k: int) -> List[int]:
         return [x for x, _ in Counter(nums).most_common(k)]
 
+    def topKFrequentv5(self, nums: List[int], k: int) -> List[int]:
+        import heapq
+        from collections import Counter
+        counts = Counter(nums)
+        print(counts)
+        heap_bucket = heapq.nlargest(k, counts.items(), key=lambda x: x[1])
+        return [k for k, v in heap_bucket]
+
+    def topKFrequentv6(self, nums: List[int], k: int) -> List[int]:
+        from collections import Counter
+
+        counts = Counter(nums)
+
+        freq = [[] for i in range(len(nums) + 1)]
+
+        for n, c in counts.items():
+            freq[c].append(n)
+        # bucket sort
+        res = []
+        for i in range(len(freq) - 1, 0, -1):
+            for n in freq[i]:
+                res.append(n)
+                if len(res) == k:
+                    return res
+
+        return res
+
+
 obj = Solution()
 
 print(obj.topKFrequent([3,0,1,0],1))
