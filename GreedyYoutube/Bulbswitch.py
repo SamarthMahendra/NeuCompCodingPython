@@ -19,7 +19,7 @@ def bulbswitch(nums):
 
 
 
-nums = [1,4, 6, 2]
+nums = [1, 4, 6, 2]
 print(bulbswitch(nums))
 
 
