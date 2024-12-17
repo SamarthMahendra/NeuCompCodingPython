@@ -11,6 +11,13 @@ def checkDuplicates(nums):
             lookup[number] = 1
     return False
 
+
+
+
+def containsDuplicate(nums: List[int]) -> bool:
+    return not(len(nums) == len(set(nums)))
+
+
 print(checkDuplicates(numsv1))
 print(checkDuplicates(numsv2))
 
