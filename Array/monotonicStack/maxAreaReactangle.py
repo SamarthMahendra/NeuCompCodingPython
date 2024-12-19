@@ -45,4 +45,21 @@ class Solution:
             max_area = max(max_area, width * nums[i])
         return max_area
 
+    class Solution:
+        def largestRectangleArea(self, nums: List[int]) -> int:
+
+            stack = []
+            nums.append(0)
+            max_area = 0
+            for i in range(len(nums)):
+
+                while stack and nums[stack[-1]] > nums[i]:
+                    index = stack.pop()
+                    height = nums[index]
+                    w = i if not stack else i - stack[-1] - 1
+                    max_area = max(max_area, w * height)
+                stack.append(i)
+            return max_area
+
+
 
