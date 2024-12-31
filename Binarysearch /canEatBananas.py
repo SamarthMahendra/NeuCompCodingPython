@@ -20,5 +20,5 @@ class Solution:
                 high = high - 1
             else:
                 low = low + 1
-
         return res
+

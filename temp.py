@@ -1,21 +1,11 @@
-class Solution:
-    def isHappy(self, n: int) -> bool:
-        seen = set()
-        while n != 1:
-            temp = str(n)
-            n = 0
-            for i in temp:
-                n += int(i) * int(i)
-            if n in seen:
-                return False
-            seen.add(n)
-
-        return True
 
 
 
+nums = [1, 2, 3, 4]
 
+n = nums.copy()
 
-n = 19
-obj = Solution()
-print(obj.isHappy(n))
+nums.pop()
+
+print(nums)
+print(n)
