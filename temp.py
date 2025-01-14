@@ -1,11 +1,14 @@
 
+class Solution(object):
+    def scoreOfString(self, s):
+        local_ord = ord
+        sum = 0
+        n = len(s)
+        for i in range( n -1):
+            sum += abs(
+                local_ord(s[i]) - local_ord(s[ i +1])
+            )
+        return sum
 
 
-nums = [1, 2, 3, 4]
-
-n = nums.copy()
-
-nums.pop()
-
-print(nums)
-print(n)
+print(Solution().scoreOfString("helloworld"))
