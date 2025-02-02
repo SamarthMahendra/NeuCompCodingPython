@@ -10,7 +10,6 @@ def kthLargest(root, k):
         return
 
     right_nodes = count_nodes(root.right) if root.right else 0
-
     if k <= right_nodes:
         # kth larghest is on right side
         return kthLargest(
