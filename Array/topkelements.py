@@ -12,7 +12,7 @@ class Solution:
         r = []
         j = 0
         for k, v in res.items():
-            if j< x :
+            if j < x :
                 r.append(k)
                 j=j+1
             else:
@@ -73,5 +73,4 @@ class Solution:
 
 
 obj = Solution()
-
 print(obj.topKFrequent([3,0,1,0],1))
