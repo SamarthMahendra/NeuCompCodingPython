@@ -24,6 +24,20 @@ def kthLargest(root, k):
             root.left, k - 1 - right_nodes
         )
 
+def kthLargest_inorder(root, k):
+    res = []
+
+    def inorder(node):
+        if not node:
+            return
+        inorder(node.left)
+        res.append(node.val)
+        inorder(node.right)
+
+    inorder(root)
+    return res[-k]  # kth largest is the k-th last element in sorted order
+
+
 
 def count_nodes(root):
     if not root:
