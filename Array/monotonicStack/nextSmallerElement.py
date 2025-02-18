@@ -1,6 +1,6 @@
 
 
-input = [4, 5, 2, 10, 8]
+input = [4, 5, 2, 10, 8, 1]
 Output = [2, 2, -1, 8, -1]
 
 from typing import List
